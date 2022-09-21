@@ -20,25 +20,25 @@
     
                 <tr>
                     <td>
-                        {{ $post['id'] }}
+                        {{ $post->id }}
                     </td>
                     <td>
-                        {{ $post['author'] }}
+                        {{ $post->user->name }}
                     </td>
                     <td>
-                        {{ $post['title'] }}
+                        {{ $post->title }}
                     </td>
                     <td>
-                        {{ $post['post_date'] }}
+                        {{ $post->post_date }}
                     </td>
                     <td>
-                        <a href="{{ route('admin.posts.show', $post['id']) }}" class="btn btn-success">VIEW</a>
+                        <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-success">VIEW</a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.posts.edit', $post['id']) }}" class="btn btn-primary">EDIT</a>
+                        <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary">EDIT</a>
                     </td>
                     <td>
-                        <form action="{{ route('admin.posts.destroy', $post['id']) }}" method="POST">
+                        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                         
