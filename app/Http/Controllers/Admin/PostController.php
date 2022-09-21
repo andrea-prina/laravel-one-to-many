@@ -56,7 +56,6 @@ class PostController extends Controller
 
         $newPost->title = $data['title'];
         $newPost->user_id = Auth::user()->id;
-        $newPost->author = Auth::user()->name;
         $newPost->post_content = $data['post_content'];
         $newPost->post_image = $data['post_image'];
         $newPost->post_date = new DateTime();
