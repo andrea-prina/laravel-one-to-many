@@ -30,7 +30,9 @@
                         {{ $post->title }}
                     </td>
                     <td>
-                        {{ $post->category->name }}
+                        <div class="badge badge-pill p-1 w-100" style="background-color: {{ $post->category->color }}">
+                            {{ $post->category->name }}
+                        </div>
                     </td>
                     <td>
                         {{ $post->post_date }}
