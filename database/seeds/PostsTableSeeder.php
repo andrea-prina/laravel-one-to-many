@@ -1,6 +1,7 @@
 <?php
 
 use App\models\Post;
+use App\User;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
@@ -13,10 +14,14 @@ class PostsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+
+        $users = User::all();
+
         for ($i=0; $i < 50; $i++) { 
             
             $newPost = new Post();
-            $newPost->author = $faker->name();
+            $newPost->user_id = $faker->randomElement($users)->id;
+            $newPost->author = $faker->name(); //TODO: Remove and drop column
             $newPost->title = $faker->catchPhrase();
             $newPost->post_content = $faker->paragraphs(2, true);
             $newPost->post_image = $faker->imageUrl(360, 360, 'animals', true, 'cats');
