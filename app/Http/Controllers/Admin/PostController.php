@@ -39,7 +39,9 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post();
-        return view('admin.posts.create', compact('post'));
+        $categories = Category::all();
+
+        return view('admin.posts.create', compact('post', 'categories'));
     }
 
     /**
@@ -57,6 +59,7 @@ class PostController extends Controller
 
         $newPost->title = $data['title'];
         $newPost->user_id = Auth::user()->id;
+        $newPost->category_id = $data['category_id'];
         $newPost->post_content = $data['post_content'];
         $newPost->post_image = $data['post_image'];
         $newPost->post_date = new DateTime();
@@ -87,7 +90,8 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**

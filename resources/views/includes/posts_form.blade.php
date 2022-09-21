@@ -20,6 +20,18 @@
             @include('includes.validation_error', ['input' => 'post_image'])
         </div>
     </div>
-    <input type="submit" value="Save & Publish" class="btn btn-primary">
+    <div class="row my-3">
+        <div class="col-6">
+            <label for="category_id">Category</label>
+            <select name="category_id" id="category_id" class="form-control">
+                @foreach ($categories as $category)
+                    <option value="{{ old('category_id', $category->id) }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-6 d-flex align-items-end">
+            <input type="submit" value="Save & Publish" class="btn btn-primary">
+        </div>
+    </div>
 </div>
 
