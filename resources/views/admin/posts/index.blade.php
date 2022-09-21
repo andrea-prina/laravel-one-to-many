@@ -9,6 +9,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Author</th>
                 <th scope="col">Title</th>
+                <th scope="col">Category</th>
                 <th scope="col">Date</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -27,6 +28,9 @@
                     </td>
                     <td>
                         {{ $post->title }}
+                    </td>
+                    <td>
+                        {{ $post->category->name }}
                     </td>
                     <td>
                         {{ $post->post_date }}
